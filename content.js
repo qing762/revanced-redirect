@@ -2,9 +2,14 @@ const officialDomain = "revanced.app";
 const unofficialDomains = ["revanced.net", "revanced.to", "revancedextended.com", "revancedextended.io", "revancedapp.download", "revancedapps.com", "revancedapk.org", "revancedapp.io", "revancedapk.net", "revancedyoutube.app"];
 
 const currentDomain = window.location.hostname;
+const currentPath = window.location.pathname;
 
 if (unofficialDomains.some(domain => currentDomain.includes(domain))) {
-    window.location.href = `https://${officialDomain}`;
+    if (currentPath === "/download") {
+        window.location.href = `https://${officialDomain}/download`;
+    } else {
+        window.location.href = `https://${officialDomain}`;
+    }
 }
 
 function replaceUnofficialLinks() {
@@ -14,7 +19,11 @@ function replaceUnofficialLinks() {
             if (link.href.includes(domain)) {
                 const url = new URL(link.href);
                 url.hostname = officialDomain;
-                url.pathname = '';
+                if (url.pathname === "/download") {
+                    url.pathname = '/download';
+                } else {
+                    url.pathname = '';
+                }
                 url.search = '';
                 link.href = url.toString();
             }
