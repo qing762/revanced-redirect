@@ -1,6 +1,16 @@
 const officialDomain = "revanced.app";
-const unofficialDomains = ["revanced.net", "revanced.to", "revancedextended.com", "revancedextended.io", "revancedapp.download", "revancedapps.com", "revancedapk.org", "revancedapp.io", "revancedapk.net", "revancedyoutube.app"];
-
+const unofficialDomains = ["revanced.net", 
+    "revanced.to",
+    "revancedextended.com",
+    "revancedextended.io",
+    "revancedapp.download",
+    "revancedapps.com",
+    "revancedapk.org",
+    "revancedapp.io",
+    "revancedapk.net",
+    "revancedyoutube.app",
+    "revanced-extended.en.uptodown.com",
+    "revancedyoutube.org"]
 const currentDomain = window.location.hostname;
 const currentPath = window.location.pathname;
 
